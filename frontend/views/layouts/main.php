@@ -3,14 +3,13 @@
 /* @var $this \yii\web\View */
 /* @var $content string */
 
+use backend\assets\AppAsset;
 use yii\helpers\Html;
-use yii\bootstrap\Nav;
-use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
-use frontend\assets\AppAsset;
-use common\widgets\Alert;
 
 AppAsset::register($this);
+
+$this->registerLinkTag(['rel'=>'icon', 'href' => '/favicon.png', 'type'=>'image/x-icon']);
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -21,60 +20,77 @@ AppAsset::register($this);
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
+	<style>
+
+	</style>
 </head>
-<body>
+<body class="fixed-sidebar fixed-topbar fixed-topbar theme-sdtl color-default">
 <?php $this->beginBody() ?>
-
-<div class="wrap">
-    <?php
-    NavBar::begin([
-        'brandLabel' => 'My Company',
-        'brandUrl' => Yii::$app->homeUrl,
-        'options' => [
-            'class' => 'navbar-inverse navbar-fixed-top',
-        ],
-    ]);
-    $menuItems = [
-        ['label' => 'Home', 'url' => ['/site/index']],
-        ['label' => 'About', 'url' => ['/site/about']],
-        ['label' => 'Contact', 'url' => ['/site/contact']],
-    ];
-    if (Yii::$app->user->isGuest) {
-        $menuItems[] = ['label' => 'Signup', 'url' => ['/site/signup']];
-        $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
-    } else {
-        $menuItems[] = '<li>'
-            . Html::beginForm(['/site/logout'], 'post')
-            . Html::submitButton(
-                'Logout (' . Yii::$app->user->identity->username . ')',
-                ['class' => 'btn btn-link logout']
-            )
-            . Html::endForm()
-            . '</li>';
-    }
-    echo Nav::widget([
-        'options' => ['class' => 'navbar-nav navbar-right'],
-        'items' => $menuItems,
-    ]);
-    NavBar::end();
-    ?>
-
-    <div class="container">
-        <?= Breadcrumbs::widget([
-            'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-        ]) ?>
-        <?= Alert::widget() ?>
-        <?= $content ?>
-    </div>
+<div id="loader-wrapper" class="account">
+    <div class="loader"></div>
+    <div class="loader-section section-left"></div>
+    <div class="loader-section section-right"></div>
 </div>
+<div class="wrap">
+    <div class="sidebar">
+        <div class="logopanel">
+        </div>
+		<?= $this->render('@app/views/sidebar/sidebar'); ?>
+	</div>
+    <div class="main-content">
+        <div class="topbar">
+            <div class="header-left">
+                <div class="topnav">
+                    <a class="menutoggle" href="#" data-toggle="sidebar-collapsed"><span class="menu__handle"><span>Menu</span></span></a>
+                    <ul class="nav nav-icons">
+                        <!--li><a href="#" class="toggle-sidebar-top"><span class="icon-user-following"></span></a></li>
+                        <li><a href="#"><span class="octicon octicon-mail-read"></span></a></li>
+                        <li><a href="#"><span class="octicon octicon-flame"></span></a></li>
+                        <li><a href="#"><span class="octicon octicon-rocket"></span></a></li-->
+                    </ul>
+                    <?=!Yii::$app->user->isGuest
+                        ? Breadcrumbs::widget([
+                            'activeItemTemplate' => "<li><span>{link}</span></li>\n",
+                            'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
+                        ])
+                        : '';
+                    ?>
+                </div>
 
-<footer class="footer">
-    <div class="container">
-        <p class="pull-left">&copy; My Company <?= date('Y') ?></p>
+            </div>
 
-        <p class="pull-right"><?= Yii::powered() ?></p>
+            <div class="header-right">
+                <ul class="header-menu nav navbar-nav">
+                    <li class="dropdown" id="user-header">
+                        <a href="#" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                            <span class="username"><?=!Yii::$app->user->isGuest ? \Yii::$app->user->identity->username : ''?></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <!--li>
+                                <a href="#"><i class="icon-user"></i><span>My Profile</span></a>
+                            </li>
+                            <li>
+                                <a href="#"><i class="icon-calendar"></i><span>My Calendar</span></a>
+                            </li>
+                            <li>
+                                <a href="#"><i class="icon-settings"></i><span>Account Settings</span></a>
+                            </li-->
+                            <li>
+                                <a href="/site/logout" data-method="post"><i class="icon-logout"></i><span>Выйти</span></a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="page-content page-thin" style="padding-top: 20px">
+            <?= $content ?>
+        </div>
     </div>
-</footer>
+
+
+
+
 
 <?php $this->endBody() ?>
 </body>
