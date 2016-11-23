@@ -13,23 +13,21 @@ class m161107_072828_CREATE_TABLES extends Migration
             }
 
             $this->createTable('catalog', [
-                'id' => 'INT(11) NOT NULL UNIQUE',
+                'id' => $this->primaryKey(),
                 'name' => 'VARCHAR(255) NOT NULL',
                 'slug' => 'VARCHAR(255) NOT NULL UNIQUE',
                 'sort' => 'INT(11) NOT NULL DEFAULT "1"',
-                'PRIMARY KEY (`id`)',
             ], $tableOptions);
             $this->createIndex('CI_catalog_slug', 'catalog', 'slug');
 
 
 
             $this->createTable('subcatalog', [
-                'id' => 'INT(11) NOT NULL UNIQUE',
+                'id' => $this->primaryKey(),
                 'id_catalog' => 'INT(11) NOT NULL',
                 'name' => 'VARCHAR(255) NOT NULL',
                 'slug' => 'VARCHAR(255) NOT NULL UNIQUE',
                 'sort' => 'INT(11) NOT NULL DEFAULT "1"',
-                'PRIMARY KEY (`id`)',
             ], $tableOptions);
             $this->createIndex('CI_subcatalog_slug', 'subcatalog', 'slug');
             $this->createIndex('CI_subcatalog_2_catalog', 'subcatalog', 'id_catalog');
@@ -37,12 +35,12 @@ class m161107_072828_CREATE_TABLES extends Migration
 
 
             $this->createTable('catalog_content', [
-                'id' => 'INT(11) NOT NULL UNIQUE',
+                'id' => $this->primaryKey(),
                 'id_catalog' => 'INT(11) NOT NULL DEFAULT "0"',
                 'id_subcatalog' => 'INT(11) NOT NULL DEFAULT "0"',
                 'title' => 'VARCHAR(255) NOT NULL',
                 'content' => 'MEDIUMTEXT NOT NULL',
-                'PRIMARY KEY (`id`)',
+                'sort' => 'INT(11) NOT NULL DEFAULT "1"',
             ], $tableOptions);
             $this->createIndex('CI_content_catalog', 'catalog_content', 'id_catalog');
             $this->createIndex('CI_content_subcatalog', 'catalog_content', 'id_subcatalog');
@@ -50,12 +48,11 @@ class m161107_072828_CREATE_TABLES extends Migration
 
 
             $this->createTable('product_price', [
-                'id' => 'INT(11) NOT NULL UNIQUE',
+                'id' => $this->primaryKey(),
                 'image' => 'INT(11) NOT NULL DEFAULT "0"',
                 'name' => 'VARCHAR(255) NOT NULL',
                 'cost' => 'INT(11) NOT NULL DEFAULT "0"',
                 'sort' => 'INT(11) NOT NULL DEFAULT "1"',
-                'PRIMARY KEY (`id`)',
             ], $tableOptions);
 
             return true;

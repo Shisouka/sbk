@@ -16,8 +16,7 @@ class m160616_095125_CREATE_TABLE_files_list extends Migration
 
         $this->createTable(
             $this->tableName, [
-            'id' => 'INT(11) NOT NULL',
-            'PRIMARY KEY(id)',
+            'id' => $this->primaryKey(),
         ], $tableOptions
         );
 

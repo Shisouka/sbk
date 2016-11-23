@@ -16,7 +16,7 @@ class m160616_093507_CREATE_TABLE_files extends Migration
 
         $this->createTable(
             $this->tableName, [
-            'id' => 'INT(11) NOT NULL',
+            'id' => $this->primaryKey(),
             'name' => 'VARCHAR(255) NOT NULL',
             'origin_name' => 'VARCHAR(255) NOT NULL',
             'mime' => 'VARCHAR(16) NOT NULL',
@@ -28,7 +28,6 @@ class m160616_093507_CREATE_TABLE_files extends Migration
             'files_list_id' => 'INT(11) NULL',
             'user_id' => 'INT(11) NULL',
             'sort' => 'INT NOT NULL DEFAULT "1"',
-            'PRIMARY KEY(id)',
         ], $tableOptions
         );
 

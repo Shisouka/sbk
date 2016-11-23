@@ -32,7 +32,7 @@ $baseUrl = isset(\Yii::$app->components['request']['baseUrl']) ? \Yii::$app->com
                 </li>
             <?php } ?>
             <li class="nav  <?= \Yii::$app->controller->id == 'common' ? 'active' : '' ?>">
-                <a href="<?= $baseUrl ?>/common"><i class="glyphicon glyphicon-cog"></i><span>Общие настройки</span></a>
+                <a href="<?= $baseUrl ?>/catalog"><i class="glyphicon glyphicon-list"></i><span>Каталог</span></a>
             </li>
            
         </ul>
