@@ -38,7 +38,7 @@ class FilesBase extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['id', 'name', 'origin_name', 'mime', 'ext', 'size', 'user_id'], 'required'],
+            [['name', 'origin_name', 'mime', 'ext', 'size', 'user_id'], 'required'],
             [['size', 'user_id'], 'integer'],
             [['created_at', 'updated_at'], 'safe'],
             [['id', 'mime', 'files_list_id'], 'string', 'max' => 16],

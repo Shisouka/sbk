@@ -18,17 +18,6 @@ use yii\behaviors\TimestampBehavior;
 
 class Files extends FilesBase
 {
-    use \common\traits\SafeDeleteTrait{
-        init as traitInit;
-        beforeSafeDelete as traitBeforeSafeDelete;
-        safeDelete as traitSafeDelete;
-        afterSafeDelete as traitAfterSafeDelete;
-    }
-
-    public function init(){
-        parent::init();
-        $this->traitInit();
-    }
 
     public $file, $url, $fileUrl;
 
@@ -199,7 +188,6 @@ class Files extends FilesBase
             mkdir($absolutePath, 0777, true);
         }
 
-        $this->id = uuid::binUuid();
         $this->name = md5($this->id);
         $this->ext = $this->file->extension;
         $this->origin_name = $this->file->baseName ? : $this->file->name ? : 'UNDEFINED NAME';
@@ -209,11 +197,12 @@ class Files extends FilesBase
         $this->user_id = \Yii::$app->user->id;
 
         if($files_list_id)
-            $this->files_list_id = uuid::uuid2bin($files_list_id);
+            $this->files_list_id = $files_list_id;
         if(!$this->file->saveAs("{$absolutePath}/{$this->getFullName()}"))
         {
 			return false;
         }
+       
 		if(!$this->save())
 			return false;
         return $this;

@@ -21,8 +21,7 @@ class DefaultController extends Controller
         if(!$id = \Yii::$app->request->getBodyParam('key')){
             return ['error' => 'undefined "key"'];
         }
-
-        $model = Files::findOne(['id' => uuid::uuid2bin($id)]);
+        $model = Files::findOne(['id' => $id]);
         if(!$model->delete()){
             return ['error' => $model->getErrors()];
         }
@@ -39,7 +38,7 @@ class DefaultController extends Controller
             return ['error' => 'wrong format"'];
 
         foreach($files as $key=>$id){
-            if($model = Files::findOne(['id' => uuid::uuid2bin($id)])){
+            if($model = Files::findOne(['id' => $id])){
                 $model['sort']=$key+1;
                 $model->save();
             };

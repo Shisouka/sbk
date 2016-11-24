@@ -23,7 +23,8 @@
         "yiisoft/yii2-imagine": "~2.0.0",
         "kartik-v/yii2-sortable-input": "*",
         "2amigos/yii2-tinymce-widget" : "~1.1",
-        "kartik-v/yii2-widget-select2": "@dev"
+        "kartik-v/yii2-widget-select2": "@dev",
+        "ps/image-optimizer": "^1.0"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.0.0",
