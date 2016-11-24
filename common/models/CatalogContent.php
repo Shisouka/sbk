@@ -52,4 +52,22 @@ class CatalogContent extends \yii\db\ActiveRecord
             'sort' => 'sort',
         ];
     }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getCatalog()
+    {
+        return $this->hasOne(Catalog::className(), ['id' => 'id_catalog']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getSubcatalog()
+    {
+        return $this->hasOne(Subcatalog::className(), ['id' => 'id_subcatalog']);
+    }
+
+
 }

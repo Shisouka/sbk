@@ -7,7 +7,7 @@ use yii\widgets\ActiveForm;
 /* @var $model common\models\Subcatalog */
 /* @var $form yii\widgets\ActiveForm */
 
-$id_catalog = $model->isNewRecord ? $id_catalog : $model->id_catalog;
+$id_catalog = $model->isNewRecord ? $catalogModel->id : $model->id_catalog;
 ?>
 
 <div class="subcatalog-form">

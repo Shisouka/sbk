@@ -54,29 +54,25 @@ class CatalogContentController extends Controller
         ]);
     }
 
-    /**
-     * Displays a single CatalogContent model.
-     * @param integer $id
-     * @return mixed
-     */
-    public function actionView($id)
-    {
-        return $this->render('view', [
-            'model' => $this->findModel($id),
-        ]);
-    }
 
     /**
      * Creates a new CatalogContent model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
-    public function actionCreate()
+    public function actionCreate($id_catalog=0, $id_subcatalog=0)
     {
         $model = new CatalogContent();
-
+        $model->id_catalog = $id_catalog;
+        $model->id_subcatalog = $id_subcatalog;
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+            $params = ['index'];
+            if ($model->id_catalog) {
+                $params = ['catalog/view', 'id' => $model->id_catalog];
+            } elseif ($model->id_subcatalog) {
+                $params = ['subcatalog/view', 'id' => $model->id_subcatalog];
+            }
+            return $this->redirect($params);
         } else {
             return $this->render('create', [
                 'model' => $model,
@@ -95,7 +91,13 @@ class CatalogContentController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+            $params = ['index'];
+            if ($model->id_catalog) {
+                $params = ['catalog/view', 'id' => $model->id_catalog];
+            } elseif ($model->id_subcatalog) {
+                $params = ['subcatalog/view', 'id' => $model->id_subcatalog];
+            }
+            return $this->redirect($params);
         } else {
             return $this->render('update', [
                 'model' => $model,
@@ -111,9 +113,15 @@ class CatalogContentController extends Controller
      */
     public function actionDelete($id)
     {
-        $this->findModel($id)->delete();
-
-        return $this->redirect(['index']);
+        $params = ['index'];
+        $model = $this->findModel($id);
+        $model->delete();
+        if ($model->id_catalog) {
+            $params = ['catalog/view', 'id' => $model->id_catalog];
+        } elseif ($model->id_subcatalog) {
+            $params = ['subcatalog/view', 'id' => $model->id_subcatalog];
+        }
+        return $this->redirect($params);
     }
 
     /**

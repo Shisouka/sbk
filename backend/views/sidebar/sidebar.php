@@ -31,7 +31,7 @@ $baseUrl = isset(\Yii::$app->components['request']['baseUrl']) ? \Yii::$app->com
                     </ul>
                 </li>
             <?php } ?>
-            <li class="nav  <?= \Yii::$app->controller->id == 'common' ? 'active' : '' ?>">
+            <li class="nav  <?= in_array(\Yii::$app->controller->id, ['catalog', 'catalog-content', 'subcatalog', ]) ? 'active' : '' ?>">
                 <a href="<?= $baseUrl ?>/catalog"><i class="glyphicon glyphicon-list"></i><span>Каталог</span></a>
             </li>
            

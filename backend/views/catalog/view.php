@@ -46,4 +46,16 @@ $this->params['breadcrumbs'][] = $this->title;
     ]);
     ?>
 
+
+    <?php
+    $pSearch =  new \common\models\search\CatalogContentSearch();
+
+    $pDP = $pSearch->search(Yii::$app->request->queryParams, $model->id);
+
+    echo $this->render('/catalog-content/index',[
+        'searchModel' => $pSearch,
+        'dataProvider' => $pDP,
+        'id_catalog' => $model->id,
+    ]);
+    ?>
 </div>

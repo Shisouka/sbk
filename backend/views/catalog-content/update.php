@@ -5,10 +5,19 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model common\models\CatalogContent */
 
-$this->title = 'Update Catalog Content: ' . $model->title;
-$this->params['breadcrumbs'][] = ['label' => 'Catalog Contents', 'url' => ['index']];
-$this->params['breadcrumbs'][] = ['label' => $model->title, 'url' => ['view', 'id' => $model->id]];
-$this->params['breadcrumbs'][] = 'Update';
+if($model->catalog) {
+    $this->title = "{$model->title} продукции \"{$model->catalog->name}\")";
+    $this->params['breadcrumbs'][] = ['label' => 'Каталог продукции', 'url' => ['/catalog']];
+    $this->params['breadcrumbs'][] = ['label' => $model->catalog->name, 'url' => ['/catalog/view','id'=>$model->id_catalog]];
+} elseif($model->subcatalog) {
+    $this->title = "{$model->title} продукции \"{$model->subcatalog->name}\"";
+    $this->params['breadcrumbs'][] = ['label' => 'Каталог продукции', 'url' => ['/catalog']];
+    $this->params['breadcrumbs'][] = ['label' => $model->subcatalog->catalog->name, 'url' => ['/catalog/view','id'=>$model->subcatalog->id_catalog]];
+    $this->params['breadcrumbs'][] = ['label' => $model->subcatalog->name, 'url' => ['/subcatalog/view','id'=>$model->id_subcatalog]];
+}
+
+$this->params['breadcrumbs'][] = ['label' => 'Содержание продукции'];
+
 ?>
 <div class="catalog-content-update">
 

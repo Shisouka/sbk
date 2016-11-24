@@ -12,11 +12,9 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'id')->textInput() ?>
+    <?= $form->field($model, 'id_catalog')->hiddenInput()->label(false) ?>
 
-    <?= $form->field($model, 'id_catalog')->textInput() ?>
-
-    <?= $form->field($model, 'id_subcatalog')->textInput() ?>
+    <?= $form->field($model, 'id_subcatalog')->hiddenInput()->label(false) ?>
 
     <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
 

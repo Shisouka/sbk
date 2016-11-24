@@ -7,8 +7,9 @@ use yii\widgets\DetailView;
 /* @var $model common\models\Subcatalog */
 
 $this->title = $model->name;
-$this->params['breadcrumbs'][] = ['label' => 'Subcatalogs', 'url' => ['index']];
-$this->params['breadcrumbs'][] = $this->title;
+$this->params['breadcrumbs'][] = ['label' => 'Каталог продукции', 'url' => ['/catalog']];
+$this->params['breadcrumbs'][] = ['label' => $model->catalog->name, 'url' => ['/catalog/view','id'=>$model->id_catalog]];
+$this->params['breadcrumbs'][] = ['label' => $this->title];
 ?>
 <div class="subcatalog-view">
 
@@ -28,12 +29,23 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
-            'id',
             'id_catalog',
             'name',
             'slug',
             'sort',
         ],
     ]) ?>
+
+    <?php
+    $pSearch =  new \common\models\search\CatalogContentSearch();
+
+    $pDP = $pSearch->search(Yii::$app->request->queryParams, false, $model->id);
+
+    echo $this->render('/catalog-content/index',[
+        'searchModel' => $pSearch,
+        'dataProvider' => $pDP,
+        'id_subcatalog' => $model->id,
+    ]);
+    ?>
 
 </div>

@@ -2,6 +2,7 @@
 
 namespace backend\controllers;
 
+use common\models\Catalog;
 use Yii;
 use common\models\Subcatalog;
 use common\models\search\SubcatalogSearch;
@@ -79,13 +80,13 @@ class SubcatalogController extends Controller
     public function actionCreate($id_catalog)
     {
         $model = new Subcatalog();
-
+        $catalogModel = Catalog::findOne($id_catalog);
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('create', [
                 'model' => $model,
-                'id_catalog' => (int) $id_catalog,
+                'catalogModel' => $catalogModel,
             ]);
         }
     }
@@ -117,9 +118,13 @@ class SubcatalogController extends Controller
      */
     public function actionDelete($id)
     {
-        $this->findModel($id)->delete();
-
-        return $this->redirect(['index']);
+        $params = ['index'];
+        $model = $this->findModel($id);
+        $model->delete();
+        if ($model->id_catalog) {
+            $params = ['catalog/view', 'id' => $model->id_catalog];
+        }
+        return $this->redirect($params);
     }
 
     /**

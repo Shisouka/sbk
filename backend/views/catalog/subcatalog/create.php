@@ -6,9 +6,11 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model common\models\Subcatalog */
 
-$this->title = 'Create Subcatalog';
-$this->params['breadcrumbs'][] = ['label' => 'Subcatalogs', 'url' => ['index']];
-$this->params['breadcrumbs'][] = $this->title;
+$this->title = "Создание подкаталога";
+
+$this->params['breadcrumbs'][] = ['label' => 'Каталог продукции', 'url' => ['/catalog']];
+$this->params['breadcrumbs'][] = ['label' => $catalogModel->name, 'url' => ['/catalog/view','id'=>$catalogModel->id]];
+$this->params['breadcrumbs'][] = ['label' => $this->title];
 ?>
 <div class="subcatalog-create">
 
@@ -16,7 +18,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <?= $this->render('_form', [
         'model' => $model,
-        'id_catalog' => $id_catalog,
+        'catalogModel' => $catalogModel,
     ]) ?>
 
 </div>
