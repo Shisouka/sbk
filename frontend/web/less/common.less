@@ -1,0 +1,437 @@
+/* NAV MENU */
+.navbar-fixed-side-left {
+  left: 0;
+}
+.navbar-fixed-side-right {
+  right: 0;
+}
+@media (max-width: 768px){
+  .navbar-fixed-side {
+    position: fixed !important;
+    float: none;
+  }
+}
+
+//select krajee
+.select2-container--krajee .select2-results > .select2-results__options {
+  max-height: 400px;
+}
+
+.grid-view {
+  >table {
+    >tbody {
+      >tr {
+        td:nth-child(2) {
+          >a {
+            text-decoration: underline;
+            &:hover {
+              text-decoration: none;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+
+.navbar-fixed-side {
+
+
+  float: left;
+  border-width: 0;
+  z-index: 1030;
+  min-height: 5px;
+  min-width: 5px;
+  max-width: 250px;
+  margin-bottom: 0;
+  border: 1px solid #C0C0C0;
+  border-top: 0;
+
+  .navbar-toggle {
+    float: none;
+    margin: 0;
+  }
+  .nav > li > a {
+    width: 100%;
+    padding: 5px;
+  }
+  .dropdown-menu > li > a {
+    padding: 5px;
+  }
+  .dropdown-header {
+    padding: 5px;
+  }
+  .nav-pills {
+    margin: 0;
+    > li {
+      float: none;
+      margin-top: 5px;
+      margin-bottom: 5px;
+      > a {
+        padding: 5px;
+        line-height: 20px;
+      }
+    }
+    .open .dropdown-menu {
+      > li > a, .dropdown-header {
+        padding: 3px 5px 3px 15px;
+      }
+    }
+  }
+  .container {
+    width: 100%;
+    padding: 0;
+  }
+  .navbar-header {
+    float: none;
+    margin: 0;
+  }
+  .navbar-collapse {
+    padding: 0 2px;
+  }
+  .container {
+    .navbar-collapse , .navbar-brand {
+      margin: 0;
+    }
+  }
+  .navbar-brand {
+    float: none;
+    height: 100%;
+    padding: 5px 3px;
+    font-size: 18px;
+    line-height: 20px;
+  }
+}
+
+#statusMsg {
+ div {
+   padding: 10px;
+   font-weight: bold;
+   text-align: center;
+ }
+ .flash-success {
+   border: 1px solid #00CC00;
+   color: #008800;
+ }
+ .flash-error {
+   border: 1px solid #CC0000;
+   color: #880000;
+ }
+}
+#loader-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2000;
+  opacity: 0.9;
+  background: #2b2e33 ;
+
+  &.loaded{
+    -moz-opacity: 0;
+    -webkit-opacity: 0;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    visibility: hidden;
+    zoom: 1;
+  }
+
+  .loader{
+    display: block;
+    position: relative;
+    left: 50%;
+    top: 50%;
+    width: 150px;
+    height: 150px;
+    margin: -75px 0 0 -75px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    border-top-color: #95effe;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+    z-index: 1001;
+
+    &:before{
+      content: "";
+      position: absolute;
+      top: 5px;
+      left: 5px;
+      right: 5px;
+      bottom: 5px;
+      border-radius: 50%;
+      border: 3px solid transparent;
+      border-top-color: #bcb2e1;
+      -webkit-animation: spin 3s linear infinite;
+      animation: spin 3s linear infinite;
+    }
+    &:after {
+      content: "";
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      right: 15px;
+      bottom: 15px;
+      border-radius: 50%;
+      border: 3px solid transparent;
+      border-top-color: #ec67bd;
+      -webkit-animation: spin 1.5s linear infinite;
+      animation: spin 1.5s linear infinite;
+    }
+  }
+  .loader-section{
+    &.section-right{
+
+    }
+    &.section-left{
+
+    }
+  }
+
+  @-webkit-keyframes spin {
+    0%   {
+      -webkit-transform: rotate(0deg);  /* Chrome, Opera 15+, Safari 3.1+ */
+      -ms-transform: rotate(0deg);  /* IE 9 */
+      transform: rotate(0deg);  /* Firefox 16+, IE 10+, Opera */
+    }
+    100% {
+      -webkit-transform: rotate(360deg);  /* Chrome, Opera 15+, Safari 3.1+ */
+      -ms-transform: rotate(360deg);  /* IE 9 */
+      transform: rotate(360deg);  /* Firefox 16+, IE 10+, Opera */
+    }
+  }
+  @keyframes spin {
+    0%   {
+      -webkit-transform: rotate(0deg);  /* Chrome, Opera 15+, Safari 3.1+ */
+      -ms-transform: rotate(0deg);  /* IE 9 */
+      transform: rotate(0deg);  /* Firefox 16+, IE 10+, Opera */
+    }
+    100% {
+      -webkit-transform: rotate(360deg);  /* Chrome, Opera 15+, Safari 3.1+ */
+      -ms-transform: rotate(360deg);  /* IE 9 */
+      transform: rotate(360deg);  /* Firefox 16+, IE 10+, Opera */
+    }
+  }
+}
+.topnav {
+  .breadcrumb {
+    background-color: inherit;
+    li {
+      position: relative;
+      &:before {
+        display: block;
+        position: absolute;
+        left: -13px;
+        width: 10px;
+        margin: 13px 5px;
+      }
+      a {
+        color: #319DB5 !important;
+        display: block
+      }
+      span {
+        display: block;
+        color: #666666;
+        font-size: 14px;
+        height: 100%;
+        padding: 13px 19px 13px;
+        -webkit-border-radius: 0;
+        -moz-border-radius: 0;
+        border-radius: 0;
+      }
+    }
+  }
+}
+
+option{
+  &.warning{
+    background-color: #fcf8e3;
+  }
+  &.danger{
+    background-color: #f2dede;
+  }
+
+}
+
+.discounts-form, .coupons-form {
+  .input-daterange {
+    width: 500px;
+    >div {
+      padding: 0;
+    }
+  }
+}
+
+.main-content {
+  .page-content {
+    margin-top: 0 !important;
+    top: 50px;
+    #adm_csortlbl{
+      border-bottom:1px dotted #000;
+      cursor: pointer;
+    }
+    #adm_csorttbl{
+      display:none;
+    }
+  }
+}
+
+.hint {
+  font-size: 12px;
+  font-style: italic;
+}
+
+.meta, .costs {
+  #city, #type, #school {
+    padding: 5px 10px;
+  }
+  h2 {
+    font-weight: 600;
+    color: #319db5;
+    font-size: 30px;
+    background-color: #d1fdd5;
+    padding: 10px;
+  }
+  h3 {
+    color: #A00000;
+    font-weight: 600;
+  }
+  .list {
+    width: 100%;
+    border: 1px solid #000000;
+    border-collapse: collapse;
+    background-color: #EEEEEE;
+    input {
+      background-color: #FFFFFF;
+      border: 1px solid #CCCDCE;
+    }
+    td, th {
+      border: 1px solid #000000;
+      padding: 5px;
+
+      &.page {
+        width: 450px;
+        font-size: 16px;
+        font-weight: 600;
+        >div {
+          text-align: center;
+        }
+      }
+      &.meta {
+        width: 200px;
+        font-size: 16px;
+        font-weight: 600;
+        text-align: center;
+      }
+    }
+    .name {
+      font-size: 16px;
+      font-weight: 600;
+      color: black;
+      margin-bottom: 10px;
+    }
+    .enabled, .not-enabled {
+      font-style: italic;
+      font-size: 12px;
+      font-weight: 400;
+    }
+    .enabled {
+      color: green;
+    }
+    .not-enabled {
+      color: red;
+    }
+    .empty {
+      background-color: #FFC0C0;
+    }
+  }
+}
+.costs {
+  .list {
+    td, th {
+      min-width: 150px;
+      width: 150px;
+    }
+    th {
+      text-align: center;
+    }
+    .course {
+      width: 400px;
+    }
+    td {
+      &.course {
+        font-size: 16px;
+        font-weight: 600px;
+        color: #1C1C1C;
+        padding-left: 20px;
+      }
+      &.active {
+        text-align: center;
+        .enabled, .not-enabled {
+          font-style: normal;
+          font-size: 14px;
+        }
+        .enabled {
+          color: green;
+        }
+        .not-enabled {
+          color: red;
+        }
+      }
+    }
+    .school {
+      text-align: center;
+      font-size: 16px;
+      font-weight: 600;
+      background-color: #D0F2FF;
+      color: #008B8B;
+    }
+    .save {
+      text-align: center;
+    }
+  }
+}
+
+
+
+
+.border-div {
+
+  border: 2px solid #808080;
+  padding: 20px;
+  margin: 20px 0px;
+  border-radius: 10px;
+
+  .title {
+    text-align: center;
+    font-weight: bold;
+    text-decoration: underline;
+  }
+}
+
+// Настройки формы общих настроек
+.common-form {
+  .field-common-students_count, .field-common-students_count_plus, .field-common-students_count_plus_min, .field-common-students_count_plus_every {
+    float: left;
+  }
+  .field-common-school_basis {
+    width: 200px;
+  }
+}
+
+// Настройки формы офисов
+.offices-form {
+  .schedule {
+    width: 50%
+  }
+}
+
+hr.section-divider {
+    border: 1px solid #C0C0C0;
+}
+
+// Иконки неактивных кнопок
+.glyphicon.disabled {
+    color: #BBB;
+}

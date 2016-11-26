@@ -10,6 +10,7 @@ namespace common\modules\file_manager\models;
 
 use common\helpers\image;
 use common\helpers\uuid;
+use common\models\Catalog;
 use Imagine\Image\Box;
 use Imagine\Image\ManipulatorInterface;
 use yii\db\ActiveRecord;
@@ -188,7 +189,12 @@ class Files extends FilesBase
             mkdir($absolutePath, 0777, true);
         }
 
-        $this->name = md5($this->id);
+        $database = \Yii::$app->db->createCommand("SELECT DATABASE()")->queryScalar();
+        $model = \Yii::$app->db->createCommand(
+            "SELECT auto_increment FROM information_schema.tables WHERE table_name='".self::tableName()."' AND table_schema='".$database."'"
+        )->queryOne();
+        $name = md5($model['auto_increment'].'_'.mt_rand(0,100));
+        $this->name = $name;
         $this->ext = $this->file->extension;
         $this->origin_name = $this->file->baseName ? : $this->file->name ? : 'UNDEFINED NAME';
         $this->mime = $this->file->type;

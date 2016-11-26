@@ -49,4 +49,22 @@ class Catalog extends \yii\db\ActiveRecord
             'sort' => 'Sort',
         ];
     }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getSubcatalog()
+    {
+        return $this->hasMany(Subcatalog::className(), ['id_catalog' => 'id'])
+            ->orderBy('sort');
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getContent()
+    {
+        return $this->hasMany(CatalogContent::className(), ['id_catalog' => 'id'])
+            ->orderBy('sort');
+    }
 }

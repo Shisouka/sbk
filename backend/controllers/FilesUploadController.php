@@ -66,7 +66,7 @@ class FilesUploadController extends Controller
         $model = new FilesUpload();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+            return $this->redirect(['index']);
         } else {
             return $this->render('create', [
                 'model' => $model,
@@ -83,8 +83,9 @@ class FilesUploadController extends Controller
      */
     public function actionDelete($id)
     {
-        $this->findModel($id)->delete();
-
+        $model = $this->findModel($id);
+        $model->id_fileImage->delete();
+        $model->delete();
         return $this->redirect(['index']);
     }
 

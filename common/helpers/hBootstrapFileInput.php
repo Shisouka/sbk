@@ -40,7 +40,7 @@ class hBootstrapFileInput
 	public static function getBootstrapFileInputOptions($model, $cell, $del=false)
 	{
 		// если нету такого свойства в модели и нету в вспомогательном свойстве, храняшим ячейки для работы с трейтом файлов, то выводим ошибку
-		if(!isset($model->$cell) && (!property_exists($model, 'LFT_FIELDS') || (property_exists($model, 'LFT_FIELDS') && !isset($model->LFT_FIELDS[$cell])))) {
+		if(!isset($model->$cell) && (!property_exists($model, 'LFT_FIELDS') || (property_exists($model, 'LFT_FIELDS') && is_array($model->LFT_FIELDS) && !isset($model->LFT_FIELDS[$cell]) && !in_array($cell, $model->LFT_FIELDS)))) {
 			throw new Exception("Не найдено свойство '{$cell}' в модели '{$model::className()}'");
 		}
 

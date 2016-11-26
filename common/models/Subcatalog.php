@@ -58,4 +58,13 @@ class Subcatalog extends \yii\db\ActiveRecord
     {
         return $this->hasOne(Catalog::className(), ['id' => 'id_catalog']);
     }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getContent()
+    {
+        return $this->hasMany(CatalogContent::className(), ['id_subcatalog' => 'id'])
+            ->orderBy('sort');
+    }
 }

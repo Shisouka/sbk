@@ -18,9 +18,8 @@ $this->params['breadcrumbs'][] = $this->title;
     <p>
         <?= Html::a('Загрузить файл', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
-<?php Pjax::begin(); ?>    <?= GridView::widget([
+ <?= GridView::widget([
         'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
@@ -28,7 +27,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'attribute' => 'id_file',
                 'format' => 'raw',
                 'content' => function($data){
-                    return ($data->id_file AND $image = $data->id_fileImage) ? $image->getThumbnailUrl(200, 200) : '-';
+                    return ($data->id_file AND $image = $data->id_fileImage) ? "<a href='".$image->getFileUrl()."' target='_blank'><img src='".$image->getThumbnailUrl(null, 200)."'></a>" : '-';
                 },
             ],
 
@@ -38,4 +37,4 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
         ],
     ]); ?>
-<?php Pjax::end(); ?></div>
+</div>

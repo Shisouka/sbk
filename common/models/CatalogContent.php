@@ -49,7 +49,7 @@ class CatalogContent extends \yii\db\ActiveRecord
             'id_subcatalog' => 'Id Subcatalog',
             'title' => 'Title',
             'content' => 'Content',
-            'sort' => 'sort',
+            'sort' => 'Sort',
         ];
     }
 

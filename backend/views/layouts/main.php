@@ -21,9 +21,9 @@ AppAsset::register($this);
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
-	<style>
+    <style>
 
-	</style>
+    </style>
 </head>
 <body class="fixed-sidebar fixed-topbar fixed-topbar theme-sdtl color-default">
 <?php $this->beginBody() ?>
@@ -39,8 +39,8 @@ AppAsset::register($this);
                 <a href="http://sbk.spb.ru">sbk.spb.ru</a>
             </h1>
         </div>
-		<?= $this->render('@app/views/sidebar/sidebar'); ?>
-	</div>
+        <?= $this->render('@app/views/sidebar/sidebar'); ?>
+    </div>
     <div class="main-content">
         <div class="topbar">
             <div class="header-left">
@@ -96,7 +96,7 @@ AppAsset::register($this);
 
 
 
-<?php $this->endBody() ?>
+    <?php $this->endBody() ?>
 </body>
 </html>
 <?php $this->endPage() ?>
