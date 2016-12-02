@@ -19,9 +19,15 @@ class AppAsset extends AssetBundle
         'less/style.css',
 //        'less/style.css',
         'less/style.less', // TODO
+        'js/jquery.fancybox.css',
+        'js/jquery.jscrollpane.css',
+        'js/slick.css',
     ];
     public $js = [
+        'js/jquery.bxslider.min.js',
         'js/app.js',
+        'js/slick.js',
+        'js/app_backend.js',
         'js/lib/plugins/jquery-ui-1.11.2.min.js',
         'js/lib/plugins/jquery.cookies.min.js',
         'js/lib/plugins/jquery.mCustomScrollbar.concat.min.js',

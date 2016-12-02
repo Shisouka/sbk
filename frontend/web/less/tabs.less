@@ -1,0 +1,102 @@
+/* Базовый контейнер табов */
+.tabs {
+  min-width: 320px;
+  padding: 0px;
+  margin: 0 auto;
+
+  .list {
+    /* Стили вкладок (табов) */
+    div {
+      display: inline-block;
+      margin: 0 0 -1px;
+      padding: 15px;
+      font-weight: 600;
+      text-align: center;
+      color: #aaa;
+      border: 1px solid #ddd;
+      //background: #f1f1f1;
+      background: #333;
+      border-radius: 3px 3px 0 0;
+
+      /* изменения стиля заголовков вкладок при наведении */
+      &:hover {
+        color: #fff;
+        cursor: pointer;
+        text-decoration: underline;
+      }
+
+      &.active {
+        color: #000;
+        font-weight: bold;
+        border: 1px solid #ddd;
+        border-top: 1px solid @lightblue;
+        border-bottom: 1px solid #fff;
+        background: #fff;
+      }
+    }
+  }
+
+  /* Стили секций с содержанием */
+  section {
+    display: none;
+    padding: 15px;
+    background: #fff;
+    border: 1px solid #ddd;
+
+    p {
+      margin: 0 0 5px;
+      line-height: 1.5;
+      color: #383838;
+      /* прикрутим анимацию */
+      -webkit-animation-duration: 1s;
+      animation-duration: 1s;
+      -webkit-animation-fill-mode: both;
+      animation-fill-mode: both;
+      -webkit-animation-name: fadeIn;
+      animation-name: fadeIn;
+    }
+
+    &.active {
+      display: block;
+    }
+  }
+}
+/* Описываем анимацию свойства opacity */
+
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+/* медиа запросы для различных типов носителей */
+@media screen and (max-width: 680px) {
+  .tabs {
+    label {
+      font-size: 10px;
+
+      &:before {
+        margin: 0;
+        font-size: 18px;
+      }
+    }
+  }
+}
+@media screen and (max-width: 400px) {
+  .tabs {
+    label {
+      padding: 15px;
+    }
+  }
+}

@@ -14,6 +14,7 @@ return [
     'components' => [
         'request' => [
             'csrfParam' => '_csrf-frontend',
+            'baseUrl' => '',
         ],
         'user' => [
             'identityClass' => 'common\models\User',
@@ -36,14 +37,19 @@ return [
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
-        /*
         'urlManager' => [
+            'class' => 'yii\web\UrlManager',
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
+
+                '/' => 'site/index',
+
+                '/catalog/<catalogSlug:[0-9a-zA-Z\-_]+>' => 'catalog/view',
+                '/catalog/<catalogSlug:[0-9a-zA-Z\-_]+>/<subcatalogSlug:[0-9a-zA-Z\-_]+>' => 'catalog/view',
+
             ],
         ],
-        */
     ],
     'params' => $params,
 ];

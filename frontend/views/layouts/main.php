@@ -10,6 +10,8 @@ use yii\widgets\Breadcrumbs;
 AppAsset::register($this);
 
 $this->registerLinkTag(['rel'=>'icon', 'href' => '/favicon.ico', 'type'=>'image/x-icon']);
+
+$bg = "background-image: url('/images/sneg".mt_rand(1,3).".jpg');"
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -26,15 +28,10 @@ $this->registerLinkTag(['rel'=>'icon', 'href' => '/favicon.ico', 'type'=>'image/
 </head>
 <body class="fixed-sidebar fixed-topbar fixed-topbar theme-sdtl color-default">
 <?php $this->beginBody() ?>
-<div id="loader-wrapper" class="account">
-    <div class="loader"></div>
-    <div class="loader-section section-left"></div>
-    <div class="loader-section section-right"></div>
-</div>
 <div class="wrap">
     <div class="sidebar">
         <div class="logopanel">
-            <img src="/images/logo.png">
+            <a href="/"><img src="/images/logo.png"></a>
         </div>
 		<?= $this->render('@app/views/sidebar/sidebar'); ?>
 	</div>
@@ -47,15 +44,27 @@ $this->registerLinkTag(['rel'=>'icon', 'href' => '/favicon.ico', 'type'=>'image/
 
             </div>
             <div class="header-center">
-                asdasd
+                <div class="company">
+                   Наша компания является авторизованным сервисным центром компании <b>BORGE</b>.
+                </div>
+                <div class="email">
+                    <a href="mailto:balttim@bk.ru">balttim@bk.ru</a>
+                </div>
+                <div class="phone">
+                    <a href="tel:+7(812)9292725">(812) 929-27-25</a>
+                </div>
             </div>
             <div class="header-right">
                 <ul class="header-menu nav navbar-nav">
                 </ul>
             </div>
         </div>
-        <div class="page-content page-thin" style="padding-top: 20px">
-            <?= $content ?>
+        <div class="page-content page-thin" style="<?= $bg; ?>">
+            <div class="content">
+                <div class="padding">
+                    <?= $content ?>
+                </div>
+            </div>
         </div>
     </div>
 

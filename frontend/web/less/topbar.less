@@ -1,6 +1,42 @@
-.topbar {
-  height: 120px;
-  .header-center {
-    height: 100%;
+.fixed-topbar {
+  .topbar {
+    height: 120px;
+    left: 300px;
+    .header-left {
+      .topnav {
+        .menutoggle {
+          position: absolute;
+        }
+      }
+    }
+    .header-center {
+      height: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      max-width: 1040px;
+      margin: auto;
+      position: relative;
+      padding: 10px 0;
+
+      > div {
+        font-size: 20px;
+        &.company {
+          max-width: 350px;
+        }
+        &.email {
+          background: url('../images/email.png') no-repeat;
+          background-position-y: 5px;
+          padding-left: 40px;
+        }
+        &.phone {
+          background: url('../images/phone.png') no-repeat;
+          background-position-y: 5px;
+          padding-left: 40px;
+          font-weight: bold;
+        }
+      }
+
+    }
   }
 }

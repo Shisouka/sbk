@@ -5,10 +5,12 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model common\models\Subcatalog */
 
-$this->title = 'Update Subcatalog: ' . $model->name;
-$this->params['breadcrumbs'][] = ['label' => 'Subcatalogs', 'url' => ['index']];
-$this->params['breadcrumbs'][] = ['label' => $model->name, 'url' => ['view', 'id' => $model->id]];
-$this->params['breadcrumbs'][] = 'Update';
+$this->title = "Редактирование подкаталога";
+
+$this->params['breadcrumbs'][] = ['label' => 'Каталог продукции', 'url' => ['/catalog']];
+$this->params['breadcrumbs'][] = ['label' => $model->catalog->name, 'url' => ['/catalog/view','id'=>$model->id_catalog]];
+$this->params['breadcrumbs'][] = ['label' => $model->name, 'url' => ['subcatalog/view','id'=>$model->id]];
+$this->params['breadcrumbs'][] = ['label' => $this->title];
 ?>
 <div class="subcatalog-update">
 

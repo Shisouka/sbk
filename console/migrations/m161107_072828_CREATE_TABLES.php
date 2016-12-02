@@ -15,6 +15,8 @@ class m161107_072828_CREATE_TABLES extends Migration
             $this->createTable('catalog', [
                 'id' => $this->primaryKey(),
                 'name' => 'VARCHAR(255) NOT NULL',
+                'title' => 'VARCHAR(255) NULL',
+                'meta_title' => 'VARCHAR(255) NULL',
                 'slug' => 'VARCHAR(255) NOT NULL UNIQUE',
                 'sort' => 'INT(11) NOT NULL DEFAULT "1"',
             ], $tableOptions);
@@ -25,6 +27,8 @@ class m161107_072828_CREATE_TABLES extends Migration
             $this->createTable('subcatalog', [
                 'id' => $this->primaryKey(),
                 'id_catalog' => 'INT(11) NOT NULL',
+                'title' => 'VARCHAR(255) NULL',
+                'meta_title' => 'VARCHAR(255) NULL',
                 'name' => 'VARCHAR(255) NOT NULL',
                 'slug' => 'VARCHAR(255) NOT NULL UNIQUE',
                 'sort' => 'INT(11) NOT NULL DEFAULT "1"',

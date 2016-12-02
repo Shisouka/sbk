@@ -17,6 +17,9 @@ $path = explode('/', $queryInfo['path']);
 ?>
 <div class="sidebar-inner mCustomScrollbar _mCS_2">
     <ul class="nav nav-sidebar">
+
+
+
         <?php foreach ($catalogModel as $catalog) :
             $catalogActive = false;
             $subcatalogActive = false;
@@ -69,5 +72,22 @@ $path = explode('/', $queryInfo['path']);
             <?php ?>
         </li>
         <?php endforeach; ?>
+        <li class="nav">
+            <a href="#"><i class="glyphicon glyphicon-ruble"></i><span>Цены на продукцию</span></a>
+        </li>
+        <li class="nav">
+            <a href="#"><i class="glyphicon glyphicon-thumbs-up"></i><span>Преимущества BORGE</span></a>
+        </li>
+        <hr>
+        <li class="nav">
+            <a href="#"><i class="glyphicon glyphicon-info-sign"></i><span>О НАС</span></a>
+        </li>
+        <li class="nav">
+            <a href="#"><i class="glyphicon glyphicon-briefcase"></i><span>УСЛУГИ</span></a>
+        </li>
+        <li class="nav">
+            <a href="#"><i class="glyphicon glyphicon-phone-alt"></i><span>КОНТАКТЫ</span></a>
+        </li>
+
     </ul>
 </div>

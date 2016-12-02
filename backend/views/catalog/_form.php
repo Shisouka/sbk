@@ -14,7 +14,11 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'slug')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'slug')->textInput(['maxlength' => true, 'disabled' => !$model->isNewRecord]) ?>
+        
+    <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
+    
+    <?= $form->field($model, 'meta_title')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'sort')->textInput() ?>
 

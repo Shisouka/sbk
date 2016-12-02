@@ -8,9 +8,26 @@
 
 .sidebar {
   top: 120px;
+  width: 300px;
+  .sidebar-inner {
+    background-color: #43454a;
+    .nav-sidebar {
+      .children {
+        li:before {
+          background-color: @lightblue;
+        }
+      }
+      .nav-parent {
+        .children {
+          background-color: #393b3e;
+        }
+      }
+    }
+  }
   .logopanel {
     background: white;
     height: 120px;
     text-align: center;
+    width: 300px;
   }
 }

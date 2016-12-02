@@ -18,8 +18,6 @@ use frontend\models\ContactForm;
  */
 class SiteController extends Controller
 {
-    
-
     /**
      * @inheritdoc
      */
@@ -45,5 +43,4 @@ class SiteController extends Controller
     {
         return $this->render('index');
     }
-
 }

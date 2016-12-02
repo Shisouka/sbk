@@ -1,3 +1,7 @@
+<IfModule mod_autoindex.c>
+        # Запрещаем просмотр содержимого папок
+        Options -Indexes
+</IfModule>
 <IfModule mod_rewrite.c>
         Options +FollowSymlinks
 
@@ -13,9 +17,5 @@
         RewriteCond %{REQUEST_FILENAME} !-d
         # В противном случае перенаправляем на index.php
         RewriteRule . index.php
-        
-        # В сателлитах не обрабатывается путь вида
-        # http://city-test.videoforme.ru/index.php/city/nnov
-        # без этого правила, причём только на сервере.
-        RewriteRule ^index.php/(.*)$ [L]
+     
 </IfModule>

@@ -30,6 +30,7 @@ if (!empty($id_catalog)) {
             ['class' => 'yii\grid\SerialColumn'],
 
             'title',
+            'sort',
             [
                 'class' => 'yii\grid\ActionColumn',
                 'template' => '{update} {delete}',

@@ -1,0 +1,223 @@
+@import 'variables.less';
+#slider{
+  .content {
+    width: 100% !important;
+  }
+}
+@media screen and (max-width:939px){
+  #slider{
+    background: #B9E9E9;
+    margin: 73px 0 0 0;
+    .bx-wrapper{
+      position: relative;
+      .bx-controls{
+        position: absolute;
+        bottom:10px;
+        width: 100%;
+        z-index: 60;
+        .bx-controls-direction{
+          display: none;
+        }
+        .bx-pager{
+          display: inline-block;
+          float: left;
+          left: 50%;
+          position: relative;
+          
+          .bx-pager-item{
+            display: inline-block;
+            a{
+              width: 15px;
+              height: 15px;
+              border-radius: 15px;
+              background: #fff;
+              display: inline-block;
+              text-indent: -999999px;
+              &:hover, &.active{
+                background: #de6138
+              }
+            }
+            float: left;
+            position: relative;
+            left: -50%;
+            margin: 0 30px;
+          }
+        }
+      }
+    }
+    
+    .slider{
+      list-style: none;
+      margin: 0px 0 0 0; 
+      padding: 0;
+      li{
+        .slider_item{
+          position: relative;
+          img{
+            width: 100%;
+          }
+          a.button{
+            text-indent: 120%;
+            white-space: nowrap;
+            overflow: hidden;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            width: 100%;
+            height: 100%;
+            background: none;
+            border: none;
+            border-radius: 0;
+          }
+        }
+      }
+    }
+  }
+}
+@media screen and (min-width:940px){
+  #slider{
+    background: #B9E9E9;
+    .bx-wrapper{
+      position: relative;
+      .bx-controls{
+        position: absolute;
+        bottom:20px;
+        width: 100%;
+        z-index: 60;
+        .bx-controls-direction{
+          display: none;
+        }
+        .bx-pager{
+          display: inline-block;
+          float: left;
+          left: 50%;
+          position: relative;
+          
+          .bx-pager-item{
+            display: inline-block;
+            a{
+              width: 15px;
+              height: 15px;
+              border-radius: 15px;
+              background: #fff;
+              display: inline-block;
+              text-indent: -999999px;
+              &:hover, &.active{
+                background: #de6138
+              }
+            }
+            float: left;
+            position: relative;
+            left: -50%;
+            margin: 0 30px;
+          }
+        }
+      }
+    }
+    
+    .slider{
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      li{
+        .slider_item{
+          position: relative;
+          line-height: 0;
+          img{
+            width: 100%;
+            height: auto;
+          }
+          a.button{
+            text-indent: 120%;
+            white-space: nowrap;
+            overflow: hidden;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            width: 100%;
+            height: 100%;
+            background: none;
+            border: none;
+            border-radius: 0;
+          }
+        }
+      }
+    }
+  }
+}
+@media screen and (min-width:1366px){
+  #slider{
+    background: #B9E9E9;
+    width: 1366px;
+    margin: 0 auto;
+    .bx-wrapper{
+      position: relative;
+      .bx-controls{
+        position: absolute;
+        bottom:20px;
+        width: 100%;
+        z-index: 60;
+        .bx-controls-direction{
+          display: none;
+        }
+        .bx-pager{
+          display: inline-block;
+          float: left;
+          left: 50%;
+          position: relative;
+          
+          .bx-pager-item{
+            display: inline-block;
+            a{
+              width: 15px;
+              height: 15px;
+              border-radius: 15px;
+              background: #fff;
+              display: inline-block;
+              text-indent: -999999px;
+              &:hover, &.active{
+                background: #de6138
+              }
+            }
+            float: left;
+            position: relative;
+            left: -50%;
+            margin: 0 30px;
+          }
+        }
+      }
+    }
+    
+    .slider{
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      li{
+        .slider_item{
+          position: relative;
+          line-height: 0;
+          a.button{
+            text-indent: 0;
+            white-space: normal;
+            position: absolute;
+            top: 310px;
+            left: 435px;
+            height: 61px;
+            width: auto;
+            line-height: 61px;
+            padding: 0 32px;
+            font-size: 24px;
+            background: linear-gradient(to bottom, #e1693d, #d34b27);
+            border-top: 1px solid #e88865;
+            border-bottom: 1px solid #b24722;
+            border-radius: 3px;
+            display: block;
+            &:hover{
+              background: linear-gradient(to bottom, #d34b27, #e1693d);
+            }
+          }
+        }
+      }
+    }
+  }
+}

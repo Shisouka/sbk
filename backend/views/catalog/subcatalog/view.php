@@ -32,6 +32,8 @@ $this->params['breadcrumbs'][] = ['label' => $this->title];
             'id_catalog',
             'name',
             'slug',
+            'title',
+            'meta_title',
             'sort',
         ],
     ]) ?>
