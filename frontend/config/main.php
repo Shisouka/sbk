@@ -56,6 +56,8 @@ return [
 
                 '/services' => 'site/services',
 
+                '/contacts' => 'site/contacts',
+
             ],
         ],
     ],

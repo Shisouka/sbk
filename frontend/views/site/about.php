@@ -4,7 +4,7 @@ $this->title = 'О нас. Системы безопасности кровли'
 <div class="title">
 	О НАС
 </div>
-<ul style="padding-left: 20px">
+<ul style="padding-left: 20px; font-size: 16px">
 	<li>
 		Комплексный подход к решению задач по безопасности на кровле и под ней.
 	</li>
