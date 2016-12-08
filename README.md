@@ -1,3 +1,5 @@
+git@github.com:Shisouka/sbk.git
+
 Yii 2 Advanced Project Template
 ===============================
 
