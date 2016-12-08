@@ -68,4 +68,9 @@ class SiteController extends Controller
     {
         return $this->render('advantages');
     }
+
+    public function actionAbout()
+    {
+        return $this->render('advantages');
+    }
 }

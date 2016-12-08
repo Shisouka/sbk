@@ -80,8 +80,8 @@ $path = explode('/', $queryInfo['path']);
             <a href="<?= Url::to('/advantages'); ?>"><i class="glyphicon glyphicon-thumbs-up"></i><span>Преимущества BORGE</span></a>
         </li>
         <hr>
-        <li class="nav">
-            <a href="#"><i class="glyphicon glyphicon-info-sign"></i><span>О НАС</span></a>
+        <li class="nav <?= \Yii::$app->controller->action->id == 'about' ? 'active' : '' ?>">
+            <a href="<?= Url::to('/about'); ?>"><i class="glyphicon glyphicon-info-sign"></i><span>О НАС</span></a>
         </li>
         <li class="nav">
             <a href="#"><i class="glyphicon glyphicon-briefcase"></i><span>УСЛУГИ</span></a>
