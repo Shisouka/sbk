@@ -193,7 +193,7 @@ trait LoadFilesTrait
         if (isset($this->oldAttributes[$field])) {
             $oldFile = Files::findOne(['id' => $this->oldAttributes[$field]]);
             if ($oldFile) {
-                $oldFile->safeDelete();
+                $oldFile->delete();
             }
         }
     }

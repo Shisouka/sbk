@@ -7,7 +7,7 @@ $this->title = $model->meta_title ? : 'Системы безопасности �
 	<?= $model->title; ?>
 </div>
 <?php endif; ?>
-<div class="cont">
+<div class="page-catalog">
 	<?php
 	if (count($content) > 1) {
 		$num = 0;
@@ -32,9 +32,10 @@ $this->title = $model->meta_title ? : 'Системы безопасности �
 				$num++;
 				?>
 				<section id="content_tab<?= $num; ?>" class="<?= $class; ?>">
-					<p>
+					<div>
 						<?= $cont->content; ?>
-					</p>
+
+					</div>
 				</section>
 				<?php
 				$class = '';
@@ -63,7 +64,8 @@ $this->title = $model->meta_title ? : 'Системы безопасности �
 			return;
 
 		echo $content[0]->content;
-
+		?>
+		<?php
 	}
 	?>
 </div>

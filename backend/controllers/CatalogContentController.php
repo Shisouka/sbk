@@ -97,6 +97,11 @@ class CatalogContentController extends Controller
             } elseif ($model->id_subcatalog) {
                 $params = ['subcatalog/view', 'id' => $model->id_subcatalog];
             }
+            //TODO
+            return $this->render('update', [
+                'model' => $model,
+            ]);
+            
             return $this->redirect($params);
         } else {
             return $this->render('update', [

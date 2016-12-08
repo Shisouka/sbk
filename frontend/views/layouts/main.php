@@ -11,7 +11,7 @@ AppAsset::register($this);
 
 $this->registerLinkTag(['rel'=>'icon', 'href' => '/favicon.ico', 'type'=>'image/x-icon']);
 
-$bg = "background-image: url('/images/sneg".mt_rand(1,3).".jpg');"
+$bg = "background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)), url('/images/background/sneg".mt_rand(1,3).".jpg');"
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -31,7 +31,7 @@ $bg = "background-image: url('/images/sneg".mt_rand(1,3).".jpg');"
 <div class="wrap">
     <div class="sidebar">
         <div class="logopanel">
-            <a href="/"><img src="/images/logo.png"></a>
+            <a href="/"><img src="/images/icons/logo.png"></a>
         </div>
 		<?= $this->render('@app/views/sidebar/sidebar'); ?>
 	</div>

@@ -2,6 +2,7 @@
 
 namespace common\models;
 
+use common\modules\file_manager\models\Files;
 use Yii;
 
 /**
@@ -15,6 +16,12 @@ use Yii;
  */
 class ProductPrice extends \yii\db\ActiveRecord
 {
+
+    // трейт по работе с загрузкой файлов
+    public $LFT_FIELDS = ['image'=>['required'=>true]];  // массив со всеми ячейками, где обязательно требуется наличие файла
+    use \common\traits\LoadFilesTrait {
+    }
+
     /**
      * @inheritdoc
      */
@@ -29,7 +36,7 @@ class ProductPrice extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['image', 'cost', 'sort'], 'integer'],
+            [['cost', 'sort'], 'integer'],
             [['name'], 'required'],
             [['name'], 'string', 'max' => 255],
             ['sort', 'default', 'value' => 1],
@@ -43,10 +50,18 @@ class ProductPrice extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'image' => 'Image',
-            'name' => 'Name',
-            'cost' => 'Cost',
-            'sort' => 'Sort',
+            'image' => 'Картинка',
+            'name' => 'Название',
+            'cost' => 'Стоимость',
+            'sort' => 'Сортировка',
         ];
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getImageImage()
+    {
+        return $this->hasOne(Files::className(), ['id' => 'image']);
     }
 }

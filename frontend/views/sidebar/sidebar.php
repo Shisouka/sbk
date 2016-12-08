@@ -72,11 +72,12 @@ $path = explode('/', $queryInfo['path']);
             <?php ?>
         </li>
         <?php endforeach; ?>
-        <li class="nav">
-            <a href="#"><i class="glyphicon glyphicon-ruble"></i><span>Цены на продукцию</span></a>
+        <hr style="margin: 0; border-top: 1px solid #888;">
+        <li class="nav <?= \Yii::$app->controller->action->id == 'price' ? 'active' : '' ?>">
+            <a href="<?= Url::to('/price'); ?>"><i class="glyphicon glyphicon-ruble"></i><span>Цены на продукцию</span></a>
         </li>
-        <li class="nav">
-            <a href="#"><i class="glyphicon glyphicon-thumbs-up"></i><span>Преимущества BORGE</span></a>
+        <li class="nav <?= \Yii::$app->controller->action->id == 'advantages' ? 'active' : '' ?>">
+            <a href="<?= Url::to('/advantages'); ?>"><i class="glyphicon glyphicon-thumbs-up"></i><span>Преимущества BORGE</span></a>
         </li>
         <hr>
         <li class="nav">

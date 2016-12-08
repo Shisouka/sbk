@@ -1,0 +1,53 @@
+.page-price {
+  >.title {
+    color: @orange;
+    font-size: 30px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  >.price-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    .product {
+      margin-right: 10px ;
+      max-width: 150px;
+      font-size: 12px;
+      font-weight: bold;
+      line-height: 1.4;
+      text-align: center;
+      height: 250px;
+      display: flex;
+      flex-wrap: wrap;
+      align-content: space-between;
+      margin-bottom: 30px;
+      background: #fff;
+      >div {
+        text-align: center;
+        width: 100%;
+      }
+      .cost {
+        font-size: 14px;
+        background: orange;
+        padding: 5px;
+      }
+      .name {
+        padding: 5px;
+      }
+    }
+  }
+}
+@media screen and (max-width: 340px) {
+  .page-price {
+    >.title {
+      line-height: 1.2;
+    }
+    >.price-list {
+      .product {
+        margin: 10px 1px;
+      }
+    }
+  }
+}

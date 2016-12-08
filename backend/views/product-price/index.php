@@ -24,13 +24,21 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'id',
-            'image',
+            [
+                'attribute' => 'image',
+                'filter' => '',
+                'content' => function($data) {
+                    return "<img src='" . $data->imageImage->getThumbnailUrl(null, 100) . "'>";
+                }
+            ],
             'name',
             'cost',
             'sort',
 
-            ['class' => 'yii\grid\ActionColumn'],
+            [
+                'class' => 'yii\grid\ActionColumn',
+                'template' => '{update} {delete}'
+            ],
         ],
     ]); ?>
 <?php Pjax::end(); ?></div>

@@ -6,7 +6,7 @@ use yii\helpers\Html;
 /* @var $model common\models\CatalogContent */
 
 if($model->catalog) {
-    $this->title = "{$model->title} продукции \"{$model->catalog->name}\")";
+    $this->title = "{$model->title} продукции \"{$model->catalog->name}\"";
     $this->params['breadcrumbs'][] = ['label' => 'Каталог продукции', 'url' => ['/catalog']];
     $this->params['breadcrumbs'][] = ['label' => $model->catalog->name, 'url' => ['/catalog/view','id'=>$model->id_catalog]];
 } elseif($model->subcatalog) {

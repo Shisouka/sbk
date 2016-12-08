@@ -1,8 +1,10 @@
 <?php
 namespace frontend\controllers;
 
+use common\models\ProductPrice;
 use Yii;
 use yii\base\InvalidParamException;
+use yii\data\Pagination;
 use yii\web\BadRequestHttpException;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
@@ -42,5 +44,28 @@ class SiteController extends Controller
     public function actionIndex()
     {
         return $this->render('index');
+    }
+
+    /**
+     * @return mixed
+     */
+    public function actionPrice()
+    {
+        $model = ProductPrice::find()->orderBy('sort');
+
+        $pagination = new Pagination([
+            'defaultPageSize' => 21,
+            'totalCount' => $model->count(),
+        ]);
+        $model = $model->offset($pagination->offset)->limit($pagination->limit)->all();
+        return $this->render('price', [
+            'model' => $model,
+            'pagination' => $pagination
+        ]);
+    }
+
+    public function actionAdvantages()
+    {
+        return $this->render('advantages');
     }
 }

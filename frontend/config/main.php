@@ -48,6 +48,10 @@ return [
                 '/catalog/<catalogSlug:[0-9a-zA-Z\-_]+>' => 'catalog/view',
                 '/catalog/<catalogSlug:[0-9a-zA-Z\-_]+>/<subcatalogSlug:[0-9a-zA-Z\-_]+>' => 'catalog/view',
 
+                '/price' => 'site/price',
+
+                '/advantages' => 'site/advantages',
+
             ],
         ],
     ],
