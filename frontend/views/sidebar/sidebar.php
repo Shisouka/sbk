@@ -83,8 +83,8 @@ $path = explode('/', $queryInfo['path']);
         <li class="nav <?= \Yii::$app->controller->action->id == 'about' ? 'active' : '' ?>">
             <a href="<?= Url::to('/about'); ?>"><i class="glyphicon glyphicon-info-sign"></i><span>О НАС</span></a>
         </li>
-        <li class="nav">
-            <a href="#"><i class="glyphicon glyphicon-briefcase"></i><span>УСЛУГИ</span></a>
+        <li class="nav<?= \Yii::$app->controller->action->id == 'services' ? 'active' : '' ?>">
+            <a href="<?= Url::to('/services'); ?>"><i class="glyphicon glyphicon-briefcase"></i><span>УСЛУГИ</span></a>
         </li>
         <li class="nav">
             <a href="#"><i class="glyphicon glyphicon-phone-alt"></i><span>КОНТАКТЫ</span></a>

@@ -71,6 +71,11 @@ class SiteController extends Controller
 
     public function actionAbout()
     {
-        return $this->render('advantages');
+        return $this->render('about');
+    }
+
+    public function actionServices()
+    {
+        return $this->render('services');
     }
 }

@@ -52,6 +52,10 @@ return [
 
                 '/advantages' => 'site/advantages',
 
+                '/about' => 'site/about',
+
+                '/services' => 'site/services',
+
             ],
         ],
     ],
