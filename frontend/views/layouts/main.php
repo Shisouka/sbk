@@ -19,6 +19,9 @@ $bg = "background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.3), rg
 <head>
     <meta charset="<?= Yii::$app->charset ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="система, безопасность, кровля, Санкт-Петербург, СПБ, borge, Борге, снегозадержатели, ограждения, лестницы" http-equiv="keywords">
+    <meta name="description" content="Элементы безопасности кровли и кровельные аксессуары от производителя. Borge." http-equiv="description">
+    <meta name="yandex-verification" content="1364150dd2ecd1d0" />
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
