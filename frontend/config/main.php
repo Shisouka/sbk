@@ -58,6 +58,8 @@ return [
 
                 '/contacts' => 'site/contacts',
 
+                '/gosts' => 'site/gosts',
+
             ],
         ],
     ],

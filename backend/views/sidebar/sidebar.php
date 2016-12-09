@@ -34,6 +34,9 @@ $baseUrl = isset(\Yii::$app->components['request']['baseUrl']) ? \Yii::$app->com
             <li class="nav  <?= in_array(\Yii::$app->controller->id, ['catalog', 'catalog-content', 'subcatalog']) ? 'active' : '' ?>">
                 <a href="<?= $baseUrl ?>/catalog"><i class="glyphicon glyphicon-list"></i><span>Каталог</span></a>
             </li>
+            <li class="nav  <?= in_array(\Yii::$app->controller->id, ['pages']) ? 'active' : '' ?>">
+                <a href="<?= $baseUrl ?>/pages"><i class="glyphicon glyphicon-file"></i><span>Страницы</span></a>
+            </li>
             <li class="nav  <?= in_array(\Yii::$app->controller->id, ['product-price']) ? 'active' : '' ?>">
                 <a href="<?= $baseUrl ?>/product-price"><i class="glyphicon glyphicon-ruble"></i><span>Цены на продукцию</span></a>
             </li>

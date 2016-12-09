@@ -1,6 +1,7 @@
 <?php
 namespace frontend\controllers;
 
+use common\models\Pages;
 use common\models\ProductPrice;
 use Yii;
 use yii\base\InvalidParamException;
@@ -43,7 +44,10 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('index');
+        $page_content = Pages::findOne(['slug'=>'main']);
+        return $this->render('index', [
+            'page_content' => $page_content
+        ]);
     }
 
     /**
@@ -66,21 +70,42 @@ class SiteController extends Controller
 
     public function actionAdvantages()
     {
-        return $this->render('advantages');
+        $page_content = Pages::findOne(['slug'=>'advantages']);
+        return $this->render('index', [
+            'page_content' => $page_content
+        ]);
     }
 
     public function actionAbout()
     {
-        return $this->render('about');
+        $page_content = Pages::findOne(['slug'=>'about']);
+        return $this->render('index', [
+            'page_content' => $page_content
+        ]);
     }
 
     public function actionServices()
     {
-        return $this->render('services');
+        $page_content = Pages::findOne(['slug'=>'services']);
+        return $this->render('index', [
+            'page_content' => $page_content
+        ]);
     }
 
     public function actionContacts()
     {
-        return $this->render('contacts');
+        $page_content = Pages::findOne(['slug'=>'contacts']);
+        return $this->render('index', [
+            'page_content' => $page_content
+        ]);
+    }
+
+    public function actionGosts()
+    {
+        $page_content = Pages::findOne(['slug'=>'gosts']);
+        
+        return $this->render('index', [
+            'page_content' => $page_content
+        ]);
     }
 }

@@ -79,6 +79,9 @@ $path = explode('/', $queryInfo['path']);
         <li class="nav <?= \Yii::$app->controller->action->id == 'advantages' ? 'active' : '' ?>">
             <a href="<?= Url::to('/advantages'); ?>"><i class="glyphicon glyphicon-thumbs-up"></i><span>Преимущества BORGE</span></a>
         </li>
+        <li class="nav <?= \Yii::$app->controller->action->id == 'gosts' ? 'active' : '' ?>">
+            <a href="<?= Url::to('/gosts'); ?>"><i class="glyphicon glyphicon-tag"></i><span>СНиП и ГОСТы</span></a>
+        </li>
         <hr>
         <li class="nav <?= \Yii::$app->controller->action->id == 'about' ? 'active' : '' ?>">
             <a href="<?= Url::to('/about'); ?>"><i class="glyphicon glyphicon-info-sign"></i><span>О НАС</span></a>
