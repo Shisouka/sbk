@@ -78,14 +78,19 @@ $bg = "background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.3), rg
 
             </div>
             <div class="header-center">
+                <div class="left">
+                    Системы<br/>Кровельной</br>Безопасности
+                </div>
                 <div class="company">
                    Наша компания является авторизованным сервисным центром компании <b>BORGE</b>.
                 </div>
-                <div class="email">
-                    <a href="mailto:balttim@bk.ru">balttim@bk.ru</a>
-                </div>
-                <div class="phone">
-                    <a href="tel:+7(812)9292725">(812) 929-27-25</a>
+                <div class="right">
+                    <div class="phone">
+                        <a href="tel:+7(812)9292725">(812) 929-27-25</a>
+                    </div>
+                    <div class="email">
+                        <a href="mailto:balttim@bk.ru">balttim@bk.ru</a>
+                    </div>
                 </div>
             </div>
             <div class="header-right">

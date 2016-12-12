@@ -19,14 +19,25 @@
       position: relative;
       padding: 10px 50px;
 
-      > div {
+      div {
         font-size: 20px;
+        &.left {
+          color: @orange;
+          font-weight: bold;
+          font-family: Courier New;
+          font-size: 26px;
+          text-transform: uppercase;
+          line-height: 1.2;
+        }
         &.company {
           max-width: 350px;
         }
+        &.right {
+          line-height: 2;
+        }
         &.email {
           background: url('../images/icons/email.png') no-repeat;
-          background-position-y: 5px;
+          background-position-y: 12px;
           padding-left: 40px;
           margin: 0 10px;
         }
@@ -45,7 +56,7 @@
   .fixed-topbar {
     .topbar {
       .header-center {
-        > div {
+        div {
           &.company {
             font-size: 15px;
             max-width: 200px;
@@ -59,12 +70,38 @@
   .fixed-topbar {
     .topbar {
       .header-center {
-        > div {
+        div {
           &.company {
             display: none;
           }
         }
       }
+    }
+  }
+}
+@media screen and (max-width: 490px) {
+  .fixed-topbar {
+    .topbar {
+      height: 170px;
+      .header-center {
+        padding-right: 10px;
+        div {
+          &.left {
+            margin: auto;
+            font-size: 23px;
+            text-align: center;
+          }
+          &.right {
+            margin: auto;
+          }
+        }
+      }
+    }
+  }
+  .sidebar {
+    top: 170px;
+    .logopanel {
+      height: 170px;
     }
   }
 }
