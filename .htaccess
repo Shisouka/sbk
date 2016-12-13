@@ -3,6 +3,14 @@ Options -Indexes
 Options +FollowSymlinks
 RewriteEngine on
 
+<filesMatch ".(jpg|jpeg|png|gif|swf)$">
+Header set Cache-Control "max-age=604800, public"
+</filesMatch>
+
+<filesMatch ".(xml|txt|css|js)$">
+Header set Cache-Control "max-age=604800, proxy-revalidate"
+</filesMatch>
+
 # Rewrite to no www
 RewriteCond %{HTTP_HOST} ^www\.(.+) [NC]
 RewriteRule ^(.*)$ http://%1/$1 [L,R=301]
