@@ -89,7 +89,7 @@ $bg = "background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.3), rg
                         <a href="tel:+7(812)9292725">(812) 929-27-25</a>
                     </div>
                     <div class="email">
-                        <a href="mailto:balttim@bk.ru">balttim@bk.ru</a>
+                        <a href="mailto:sbk.spb@mail.ru">sbk.spb@mail.ru</a>
                     </div>
                 </div>
             </div>
